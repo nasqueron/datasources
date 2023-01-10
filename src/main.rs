@@ -21,8 +21,10 @@ enum FantoirCommand {
     #[command(arg_required_else_help = true)]
     Promote(PromoteArgs),
 
+    /// Query Wikidata SPARQL end-point to enrich FANTOIR information
+    Wikidata(WikidataArgs),
+
     /// Query the imported FANTOIR table
-    #[command(arg_required_else_help = true)]
     Query(QueryArgs)
 }
 
@@ -48,6 +50,18 @@ pub struct ImportArgs {
 pub struct PromoteArgs {
     /// The name of the table to promote
     fantoir_table: String,
+}
+
+#[derive(Debug, Args)]
+pub struct WikidataArgs {
+    /// Create table if it doesn't exist
+    #[arg(short = 'c')]
+    create_table: bool,
+
+    /// Truncate table if it already exists, allowing the overwrite mode.
+    /// If not specified, the script will fail if table exists.
+    #[arg(short = 't')]
+    overwrite_table: bool,
 }
 
 #[derive(Debug, Args)]
@@ -78,6 +92,9 @@ async fn main() {
         },
         FantoirCommand::Promote(args) => {
             promote(&args.fantoir_table, &database_url).await;
+        },
+        FantoirCommand::Wikidata(args) => {
+            commands::wikidata::import(&args, &database_url).await
         },
         FantoirCommand::Query(args) => {
             commands::query::search(args, &database_url).await

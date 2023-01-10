@@ -12,12 +12,33 @@ use crate::ImportArgs;
 use crate::db::*;
 use crate::fantoir::FantoirEntry;
 
+impl ToTableInitializationArgs for &ImportArgs {
+    fn to_table_initialization_args (&self) -> TableInitializationArgs {
+        TableInitializationArgs {
+            table_name: self.fantoir_table.clone(),
+            create_table: self.create_table,
+            overwrite_table: self.overwrite_table,
+        }
+    }
+}
+
+async fn create_table(pool: &PgPool, table: &str) {
+    let queries = include_str!("../schema/fantoir.sql")
+        .replace("/*table*/fantoir", table)
+        .replace("/*index*/index_fantoir_", format!("index_{}_", table).as_ref());
+
+    run_multiple_queries(pool, &queries).await;
+}
+
 pub async fn import(args: &ImportArgs, database_url: &str) {
     let fd = File::open(&args.fantoir_file).await.expect("Can't open file.");
     let pool  = connect_to_db(database_url).await;
 
     // Create/truncate table as needed and as allowed by options
-    if let Err(error) = initialize_table(args, &pool).await {
+    let callback = async {
+        create_table(&pool, &args.fantoir_table).await;
+    };
+    if let Err(error) = initialize_table(&pool, callback, args).await {
         eprintln!("{}", &error);
         exit(1);
     }
@@ -45,40 +66,4 @@ pub async fn import(args: &ImportArgs, database_url: &str) {
             .insert_to_db(&pool, &args.fantoir_table)
             .await
     }
-}
-
-async fn initialize_table(args: &ImportArgs, pool: &PgPool) -> Result<(), String> {
-    if is_table_exists(pool, &args.fantoir_table).await {
-        if is_table_empty(&pool, &args.fantoir_table).await {
-            return Ok(());
-        }
-
-        if args.overwrite_table {
-            truncate_table(&pool, &args.fantoir_table).await;
-            return Ok(());
-        }
-
-        return Err(format!(
-            "Table {} already exists and contains rows. To overwrite it, run the import tool with -t option.",
-            &args.fantoir_table
-        ));
-    }
-
-    if args.create_table {
-        create_table(&pool, &args.fantoir_table).await;
-        return Ok(());
-    }
-
-    Err(format!(
-        "Table {} doesn't exist. To create it, run the import tool with -c option.",
-        &args.fantoir_table
-    ))
-}
-
-async fn create_table(pool: &PgPool, table: &str) {
-    let queries = include_str!("../schema/fantoir.sql")
-        .replace("/*table*/fantoir", table)
-        .replace("/*index*/index_fantoir_", format!("index_{}_", table).as_ref());
-
-    run_multiple_queries(pool, &queries).await;
 }

@@ -1,0 +1,12 @@
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+# Streets with FANTOIR code
+SELECT DISTINCT ?code_fantoir ?item ?itemLabel ?what
+WHERE
+{
+  ?item wdt:P3182 ?code_fantoir .
+  ?item wdt:P31 ?what
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+}

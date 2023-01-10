@@ -3,8 +3,19 @@
 //! This module offers a structure for a FANTOIR record, methods to parse the file and export it.
 //! Database functions expect to work with an executor from sqlx crate.
 
+use lazy_static::lazy_static;
 use sqlx::PgPool;
 use sqlx::types::chrono::NaiveDate;
+
+lazy_static! {
+    static ref DEPARTMENTS_WITH_CODE_DIRECTION: Vec<&'static str> = vec!["13", "59", "75", "92", "97"];
+
+    /// The alphabet without I O and Q.
+    static ref RIVOLI_STRING: Vec<char> = vec![
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M',
+        'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    ];
+}
 
 /// A voie in the FANTOIR database
 #[derive(Debug)]
@@ -158,6 +169,95 @@ fn parse_optional_string (expression: &str) -> Option<String> {
     }
 }
 
+/// A fixed FANTOIR code result
+#[derive(Debug, Eq, PartialEq)]
+pub enum FixedFantoirCode {
+    /// The code has been fully computed
+    Computed(String),
+
+    /// Information needed to query the code has been extracted, but code direction is unknown
+    /// Such result can be queried through search_code_fantoir()
+    ToSearch { code_insee: String, identifiant_communal_voie: String },
+}
+
+/// Transforms FANTOIR code from BAN into regular FANTOIR codes.
+/// BAN sometimes uses <insee code>_<identifiant voie commune> without Rivoli key.
+pub fn fix_fantoir_code(code: &str) -> FixedFantoirCode {
+    let mut code = code.to_string();
+
+    if code.contains("_") {
+        // 97231_B026 -> 972231B026
+        code = if code.starts_with("97") {
+            // Code direction = department last digit
+            format!("{}{}{}", &code[0..=2], &code[2..5], &code[6..])
+        } else if uses_specific_code_direction(&code) {
+            // We can't fix it by computation, we need to search it in the database
+            return FixedFantoirCode::ToSearch {
+                code_insee: code[0..5].to_string(),
+                identifiant_communal_voie: code[6..10].to_string(),
+            }
+        } else {
+            // Code direction = 0
+            format!("{}0{}{}", &code[0..=2], &code[3..5], &code[6..])
+        };
+    }
+
+    if code.len() == 10 {
+        let last_char = code.chars().last().unwrap();
+
+        match last_char {
+            '0'..='9' => {
+                code.push(compute_rivoli_key(&code));
+            }
+
+            'A'..='Z' => {
+                // 441090516U -> 4401090516U
+                code = if uses_specific_code_direction(&code) {
+                    // We can't fix it by computation, we need to search it in the database
+                    // 920514135A -> 92051 4135
+                    return FixedFantoirCode::ToSearch {
+                        code_insee: code[0..5].to_string(),
+                        identifiant_communal_voie: code[5..9].to_string(),
+                    }
+                } else {
+                    format!("{}0{}", &code[0..2], &code[2..])
+                };
+            }
+
+            _ => unreachable!(),
+        }
+    }
+
+   FixedFantoirCode::Computed(code)
+}
+
+pub fn uses_specific_code_direction (code: &str) -> bool {
+    DEPARTMENTS_WITH_CODE_DIRECTION
+        .iter()
+        .any(|&dpt| code.starts_with(dpt))
+}
+
+pub fn compute_rivoli_key (code: &str) -> char {
+    // See https://georezo.net/forum/viewtopic.php?id=102292
+
+    if code.starts_with("2A") || code.starts_with("2B") {
+        // 2A would be 2 10 and 2B would be 2 11, but how to build a number to multiply by 19?
+        unimplemented!()
+    }
+
+    let part_commune: i32 = code[0..6].parse().unwrap();
+    let type_voie = code.chars().nth(6).unwrap();
+    let type_voie = if type_voie.is_alphabetic() {
+        type_voie as u32 - 55
+    } else {
+        type_voie.to_digit(10).unwrap()
+    };
+    let numero_identifiant_communal_voie: i32 = code[7..].parse().unwrap();
+
+    let index = (part_commune * 19 + type_voie as i32 * 11 + numero_identifiant_communal_voie) % 23;
+    return RIVOLI_STRING[index as usize];
+}
+
 #[cfg(test)]
 mod tests {
     // Note this useful idiom: importing names from outer (for mod tests) scope.
@@ -166,7 +266,7 @@ mod tests {
     #[test]
     fn test_parse_fantoir_date() {
         let expected = NaiveDate::from_ymd_opt(1987, 1, 1).unwrap();
-        let actual = parse_fantoir_date("1987001");
+        let actual = parse_fantoir_date("1987001").unwrap();
         assert_eq!(expected, actual);
     }
 
@@ -188,5 +288,45 @@ mod tests {
     #[test]
     fn test_parse_optional_string_when_only_spaces() {
         assert_eq!(true, parse_optional_string("    ").is_none());
+    }
+
+    #[test]
+    pub fn test_fix_fantoir_code () {
+        assert_fixed_fantoir_code("755112P144L", fix_fantoir_code("755112P144L"));
+        assert_fixed_fantoir_code("972231B026U", fix_fantoir_code("97231_B026"));
+        assert_fixed_fantoir_code("4401090516U", fix_fantoir_code("441090516U"));
+        assert_fixed_fantoir_code("972222B305L", fix_fantoir_code("972222B305"));
+    }
+
+    fn assert_fixed_fantoir_code (expected: &str, actual: FixedFantoirCode) {
+        match actual {
+            FixedFantoirCode::Computed(code) => {
+                assert_eq!(expected, &code);
+            },
+            _ => assert!(false, "Expected a computed FANTOIR code")
+        }
+    }
+
+    #[test]
+    pub fn test_fix_fantoir_code_when_it_cannot_be_computed () {
+        let expected = FixedFantoirCode::ToSearch {
+            code_insee: "92002".to_string(),
+            identifiant_communal_voie: "5130".to_string()
+        };
+
+        assert_eq!(expected, fix_fantoir_code("920025130X"), "As code direction can't be computed, this code should be to search");
+        assert_eq!(expected, fix_fantoir_code("92002_5130"), "As code direction can't be computed, this code should be to search");
+    }
+
+
+    #[test]
+    pub fn test_compute_rivoli_key() {
+        assert_eq!('W', compute_rivoli_key("380003B001"));
+        assert_eq!('U', compute_rivoli_key("972231B026"));
+    }
+
+    #[test]
+    pub fn test_compute_rivoli_key_with_type_voie_zero() {
+        assert_eq!('C', compute_rivoli_key("9722230261"));
     }
 }
