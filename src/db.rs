@@ -3,6 +3,7 @@
 //! This module provides helpers to interact with a PostgreSQL database.
 //! Functions expect to work with an executor from sqlx crate.
 
+use async_scoped::TokioScope;
 use sqlx::PgPool;
 use sqlx::postgres::PgPoolOptions;
 
@@ -68,4 +69,15 @@ pub async fn run_multiple_queries(pool: &PgPool, queries: &str) {
             .await
             .expect("Can't run SQL query.");
     }
+}
+
+pub fn run_multiple_queries_groups (pool: &PgPool, queries_groups: &Vec<String>) {
+    let n = queries_groups.len();
+    TokioScope::scope_and_block(|scope| {
+        for i in 0..n {
+            scope.spawn(
+                run_multiple_queries(pool, &queries_groups[i])
+            )
+        }
+    });
 }
