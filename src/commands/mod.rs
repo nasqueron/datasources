@@ -2,3 +2,4 @@
 
 pub(crate) mod import;
 pub(crate) mod promote;
+pub(crate) mod query;

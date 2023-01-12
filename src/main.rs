@@ -2,12 +2,12 @@ use std::env;
 
 use clap::{Args, Parser};
 
-use crate::commands::import::import;
 use crate::commands::promote::promote;
 
 mod commands;
 mod db;
 mod fantoir;
+mod services;
 
 #[derive(Debug, Parser)]
 #[command(name = "fantoir-datasource")]
@@ -20,6 +20,10 @@ enum FantoirCommand {
     /// Promote an imported FANTOIR table as the current FANTOIR table to use
     #[command(arg_required_else_help = true)]
     Promote(PromoteArgs),
+
+    /// Query the imported FANTOIR table
+    #[command(arg_required_else_help = true)]
+    Query(QueryArgs)
 }
 
 #[derive(Debug, Args)]
@@ -46,6 +50,21 @@ pub struct PromoteArgs {
     fantoir_table: String,
 }
 
+#[derive(Debug, Args)]
+#[clap(trailing_var_arg=true)]
+pub struct QueryArgs {
+    /// INSEE code to identify a commune
+    #[arg(long)]
+    code_insee: Option<String>,
+
+    /// Identifier of the voie by the commune
+    #[arg(long)]
+    code_voie: Option<String>,
+
+    /// Expression to search
+    libelle: Vec<String>,
+}
+
 #[tokio::main]
 async fn main() {
     let command = FantoirCommand::parse(); // Will exit if argument is missing or --help/--version provided.
@@ -55,10 +74,13 @@ async fn main() {
 
     match command {
         FantoirCommand::Import(args) => {
-            import(&args, &database_url).await;
+            commands::import::import(&args, &database_url).await;
         },
         FantoirCommand::Promote(args) => {
             promote(&args.fantoir_table, &database_url).await;
+        },
+        FantoirCommand::Query(args) => {
+            commands::query::search(args, &database_url).await
         },
     };
 }
