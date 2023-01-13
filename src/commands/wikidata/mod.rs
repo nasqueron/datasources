@@ -1,15 +1,18 @@
 //! Query Wikidata SPARQL end-point and import result into PostgreSQL
 
 mod qualification;
+mod report;
 
 use std::collections::HashMap;
 use std::process::exit;
+
 use oxrdf::Term;
 use sqlx::PgPool;
 
+use crate::commands::wikidata::qualification::determine_p31_winner;
+use crate::commands::wikidata::report::*;
 use crate::db::*;
 use crate::WikidataArgs;
-use crate::commands::wikidata::qualification::determine_p31_winner;
 use crate::fantoir::{fix_fantoir_code, FixedFantoirCode};
 use crate::services::query::search_fantoir_code;
 use crate::services::sparql::*;
@@ -56,18 +59,38 @@ pub async fn import (args: &WikidataArgs, database_url: &str) {
 
     // Consolidate entries and insert them into the database.
     // To avoid an async closure, we don't use HOF pattern.
+    let mut maintenance_report = HashMap::new();
     for (key, candidates) in what_map {
         if let Some(entry) = WikidataEntry::consolidate_set(&pool, &key, candidates).await {
-            entry.insert_to_db(&pool).await;
+            if let Err(error) = entry.insert_to_db(&pool).await {
+                if args.maintenance_report {
+                    update_report(&mut maintenance_report, key, error);
+                } else {
+                    eprintln!();
+                    eprintln!("Can't insert Wikidata information for the following entry:");
+                    eprintln!("{:?}", entry);
+                    eprintln!("{}", error);
+                }
+            }
             continue;
         }
 
-        eprintln!();
-        eprintln!("Can't insert Wikidata information for the following entry:");
-        eprintln!("{:?}", &key);
-        eprintln!("Can't resolve FANTOIR code.");
+        if args.maintenance_report {
+            let entry = maintenance_report
+                .entry("Can't resolve FANTOIR code")
+                .or_insert(Vec::new());
+            entry.push(key);
+        } else {
+            eprintln!();
+            eprintln!("Can't insert Wikidata information for the following entry:");
+            eprintln!("{:?}", &key);
+            eprintln!("Can't resolve FANTOIR code.");
+        }
     }
 
+    if args.maintenance_report {
+        print_maintenance_report(maintenance_report);
+    }
 }
 
 /*   -------------------------------------------------------------
@@ -108,10 +131,10 @@ struct WikidataEntry {
 }
 
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
-struct WikidataEntryKey {
-    code_fantoir_wikidata: String,
-    item: String,
-    item_label: String,
+pub struct WikidataEntryKey {
+    pub code_fantoir_wikidata: String,
+    pub item: String,
+    pub item_label: String,
 }
 
 impl WikidataEntryKey {
@@ -144,7 +167,7 @@ impl WikidataEntry {
         })
     }
 
-    async fn insert_to_db (&self, pool: &PgPool) {
+    async fn insert_to_db (&self, pool: &PgPool) -> Result<(), sqlx::Error> {
         let mut query = format!("INSERT INTO {}", WIKIDATA_TABLE);
         query.push_str(
             r#"
@@ -153,7 +176,7 @@ impl WikidataEntry {
             ($1, $2, $3, $4, $5)"#
         );
 
-        if let Err(error) = sqlx::query(&query)
+        sqlx::query(&query)
             .bind(&self.code_fantoir)
             .bind(&self.code_fantoir_wikidata)
             .bind(&self.item)
@@ -161,12 +184,8 @@ impl WikidataEntry {
             .bind(&self.what)
 
             .execute(pool)
-            .await {
-            eprintln!();
-            eprintln!("Can't insert Wikidata information for the following entry:");
-            eprintln!("{:?}", self);
-            eprintln!("{}", error);
-        }
+            .await
+            .map(|_result| ())
     }
 }
 

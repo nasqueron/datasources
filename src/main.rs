@@ -62,6 +62,10 @@ pub struct WikidataArgs {
     /// If not specified, the script will fail if table exists.
     #[arg(short = 't')]
     overwrite_table: bool,
+
+    /// Generate a Wikidata maintenance report instead to print errors to stderr
+    #[arg(long)]
+    maintenance_report: bool,
 }
 
 #[derive(Debug, Args)]
