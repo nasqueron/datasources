@@ -1,0 +1,13 @@
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/fichier-fantoir-des-voies-et-lieux-dits/facets"
+    },
+    {
+      "rel": "dataset",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/fichier-fantoir-des-voies-et-lieux-dits"
+    }
+  ],
+  "facets": []
+}

@@ -1,0 +1,44 @@
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn/records/eb04cba18e872814448a7fda829f3f1918cfae0b"
+    },
+    {
+      "rel": "datasets",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets"
+    },
+    {
+      "rel": "dataset",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn"
+    }
+  ],
+  "record": {
+    "id": "eb04cba18e872814448a7fda829f3f1918cfae0b",
+    "timestamp": "2021-01-07T23:00:00Z",
+    "size": 235,
+    "fields": {
+      "cct_code_dept": "Vendée",
+      "code_postal": "85700",
+      "cct_code_commune": "Pouzauges",
+      "cct_denomination": "SARL C.T.A",
+      "cct_adresse": "74 AV DES SABLES",
+      "cct_tel": null,
+      "cct_url": null,
+      "cat_vehicule_id": "5",
+      "cat_vehicule_libelle": "Camping-car (moins de 3,5 tonnes)",
+      "cat_energie_id": "5",
+      "cat_energie_libelle": "Electrique",
+      "prix_visite": 78,
+      "date_application_visite": "2020-10-02",
+      "prix_contre_visite_min": 20,
+      "prix_contre_visite_max": 20,
+      "date_application_contre_visite": "2020-10-02",
+      "latitude": {
+        "lon": -0.847609,
+        "lat": 46.777426
+      },
+      "cct_siret": "41409085200131"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/fichier-fantoir-des-voies-et-lieux-dits/attachments"
+    }
+  ],
+  "attachments": [
+    {
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/fichier-fantoir-des-voies-et-lieux-dits/attachments/fichier_national_fantoir_situation_janvier_2022_zip",
+      "metas": {
+        "id": "fichier_national_fantoir_situation_janvier_2022_zip",
+        "title": "Fichier national FANTOIR (situation janvier 2022).zip",
+        "mimetype": "application/zip",
+        "url": "odsfile://fichier-national-fantoir-situation-janvier-2022.zip"
+      }
+    },
+    {
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/fichier-fantoir-des-voies-et-lieux-dits/attachments/fichier_national_fantoir_situation_avril_2022_zip",
+      "metas": {
+        "id": "fichier_national_fantoir_situation_avril_2022_zip",
+        "title": "Fichier national FANTOIR (situation avril 2022).zip",
+        "mimetype": "application/zip",
+        "url": "odsfile://fichier-national-fantoir-situation-avril-2022.zip"
+      }
+    },
+    {
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/fichier-fantoir-des-voies-et-lieux-dits/attachments/descriptif_du_fichier_national_fantoir_pdf",
+      "metas": {
+        "id": "descriptif_du_fichier_national_fantoir_pdf",
+        "title": "Descriptif du fichier national FANTOIR.pdf",
+        "mimetype": "application/pdf",
+        "url": "odsfile://descriptif-du-fichier-national-fantoir.pdf"
+      }
+    },
+    {
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/fichier-fantoir-des-voies-et-lieux-dits/attachments/fichier_national_fantoir_situation_juillet_2022_zip",
+      "metas": {
+        "id": "fichier_national_fantoir_situation_juillet_2022_zip",
+        "title": "Fichier national FANTOIR (situation juillet 2022).zip",
+        "mimetype": "application/zip",
+        "url": "odsfile://fichier-national-fantoir-situation-juillet-2022.zip"
+      }
+    },
+    {
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/fichier-fantoir-des-voies-et-lieux-dits/attachments/fichier_national_fantoir_situation_novembre_2022_zip",
+      "metas": {
+        "id": "fichier_national_fantoir_situation_novembre_2022_zip",
+        "title": "Fichier national FANTOIR (situation novembre 2022).zip",
+        "mimetype": "application/zip",
+        "url": "odsfile://fichier-national-fantoir-situation-novembre-2022.zip"
+      }
+    }
+  ]
+}

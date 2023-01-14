@@ -1,0 +1,891 @@
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/facets"
+    },
+    {
+      "rel": "source",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog"
+    }
+  ],
+  "facets": [
+    {
+      "name": "features",
+      "facets": [
+        {
+          "name": "analyze",
+          "count": 306,
+          "state": "displayed",
+          "value": "analyze"
+        },
+        {
+          "name": "timeserie",
+          "count": 69,
+          "state": "displayed",
+          "value": "timeserie"
+        },
+        {
+          "name": "geo",
+          "count": 25,
+          "state": "displayed",
+          "value": "geo"
+        },
+        {
+          "name": "custom_view",
+          "count": 11,
+          "state": "displayed",
+          "value": "custom_view"
+        },
+        {
+          "name": "calendar",
+          "count": 5,
+          "state": "displayed",
+          "value": "calendar"
+        },
+        {
+          "name": "image",
+          "count": 1,
+          "state": "displayed",
+          "value": "image"
+        }
+      ]
+    },
+    {
+      "name": "modified",
+      "facets": [
+        {
+          "name": "2018",
+          "count": 262,
+          "state": "displayed",
+          "value": "2018"
+        },
+        {
+          "name": "2019",
+          "count": 32,
+          "state": "displayed",
+          "value": "2019"
+        },
+        {
+          "name": "2020",
+          "count": 26,
+          "state": "displayed",
+          "value": "2020"
+        },
+        {
+          "name": "2021",
+          "count": 39,
+          "state": "displayed",
+          "value": "2021"
+        },
+        {
+          "name": "2022",
+          "count": 52,
+          "state": "displayed",
+          "value": "2022"
+        },
+        {
+          "name": "2023",
+          "count": 15,
+          "state": "displayed",
+          "value": "2023"
+        }
+      ]
+    },
+    {
+      "name": "publisher",
+      "facets": [
+        {
+          "name": "DB",
+          "count": 223,
+          "state": "displayed",
+          "value": "DB"
+        },
+        {
+          "name": "DGFiP",
+          "count": 71,
+          "state": "displayed",
+          "value": "DGFiP"
+        },
+        {
+          "name": "DGE",
+          "count": 28,
+          "state": "displayed",
+          "value": "DGE"
+        },
+        {
+          "name": "DGTRESOR",
+          "count": 18,
+          "state": "displayed",
+          "value": "DGTRESOR"
+        },
+        {
+          "name": "DGCCRF",
+          "count": 17,
+          "state": "displayed",
+          "value": "DGCCRF"
+        },
+        {
+          "name": "DGDDI",
+          "count": 14,
+          "state": "displayed",
+          "value": "DGDDI"
+        },
+        {
+          "name": "France Num (DGE)",
+          "count": 14,
+          "state": "displayed",
+          "value": "France Num (DGE)"
+        },
+        {
+          "name": "DGAFP",
+          "count": 9,
+          "state": "displayed",
+          "value": "DGAFP"
+        },
+        {
+          "name": "DAE",
+          "count": 8,
+          "state": "displayed",
+          "value": "DAE"
+        },
+        {
+          "name": "INPI",
+          "count": 7,
+          "state": "displayed",
+          "value": "INPI"
+        },
+        {
+          "name": "Ministère de l'économie et des finances",
+          "count": 3,
+          "state": "displayed",
+          "value": "Ministère de l'économie et des finances"
+        },
+        {
+          "name": "Secrétariat général",
+          "count": 2,
+          "state": "displayed",
+          "value": "Secrétariat général"
+        },
+        {
+          "name": "CISIRH",
+          "count": 1,
+          "state": "displayed",
+          "value": "CISIRH"
+        },
+        {
+          "name": "DAJ et SG",
+          "count": 1,
+          "state": "displayed",
+          "value": "DAJ et SG"
+        },
+        {
+          "name": "DGCCRF, DGAL, (prochainement DGPR et DGEC)",
+          "count": 1,
+          "state": "displayed",
+          "value": "DGCCRF, DGAL, (prochainement DGPR et DGEC)"
+        },
+        {
+          "name": "DGE - Mission de Restructuration des Entreprises",
+          "count": 1,
+          "state": "displayed",
+          "value": "DGE - Mission de Restructuration des Entreprises"
+        },
+        {
+          "name": "DIE",
+          "count": 1,
+          "state": "displayed",
+          "value": "DIE"
+        },
+        {
+          "name": "OpenDataSoft",
+          "count": 1,
+          "state": "displayed",
+          "value": "OpenDataSoft"
+        },
+        {
+          "name": "SGPR",
+          "count": 1,
+          "state": "displayed",
+          "value": "SGPR"
+        },
+        {
+          "name": "Secrétariat Général - Mission innovation",
+          "count": 1,
+          "state": "displayed",
+          "value": "Secrétariat Général - Mission innovation"
+        }
+      ]
+    },
+    {
+      "name": "keyword",
+      "facets": [
+        {
+          "name": "  PLR 2011",
+          "count": 1,
+          "state": "displayed",
+          "value": "  PLR 2011"
+        },
+        {
+          "name": "  budget général",
+          "count": 5,
+          "state": "displayed",
+          "value": "  budget général"
+        },
+        {
+          "name": "  budgets annexes",
+          "count": 3,
+          "state": "displayed",
+          "value": "  budgets annexes"
+        },
+        {
+          "name": "  crédits de paiement",
+          "count": 2,
+          "state": "displayed",
+          "value": "  crédits de paiement"
+        },
+        {
+          "name": "  missions",
+          "count": 2,
+          "state": "displayed",
+          "value": "  missions"
+        },
+        {
+          "name": "  programmes",
+          "count": 1,
+          "state": "displayed",
+          "value": "  programmes"
+        },
+        {
+          "name": " LFI 2011",
+          "count": 8,
+          "state": "displayed",
+          "value": " LFI 2011"
+        },
+        {
+          "name": " LFI 2012",
+          "count": 26,
+          "state": "displayed",
+          "value": " LFI 2012"
+        },
+        {
+          "name": " LFI 2013",
+          "count": 24,
+          "state": "displayed",
+          "value": " LFI 2013"
+        },
+        {
+          "name": " LFI 2014",
+          "count": 19,
+          "state": "displayed",
+          "value": " LFI 2014"
+        },
+        {
+          "name": " LFI 2016",
+          "count": 1,
+          "state": "displayed",
+          "value": " LFI 2016"
+        },
+        {
+          "name": " LFI 2017",
+          "count": 1,
+          "state": "displayed",
+          "value": " LFI 2017"
+        },
+        {
+          "name": " LFI 2018",
+          "count": 1,
+          "state": "displayed",
+          "value": " LFI 2018"
+        },
+        {
+          "name": " LOLF",
+          "count": 2,
+          "state": "displayed",
+          "value": " LOLF"
+        },
+        {
+          "name": " PLF 2012",
+          "count": 23,
+          "state": "displayed",
+          "value": " PLF 2012"
+        },
+        {
+          "name": " PLF 2013",
+          "count": 17,
+          "state": "displayed",
+          "value": " PLF 2013"
+        },
+        {
+          "name": " PLF 2014",
+          "count": 31,
+          "state": "displayed",
+          "value": " PLF 2014"
+        },
+        {
+          "name": " PLF 2015",
+          "count": 1,
+          "state": "displayed",
+          "value": " PLF 2015"
+        },
+        {
+          "name": " PLF 2016",
+          "count": 3,
+          "state": "displayed",
+          "value": " PLF 2016"
+        },
+        {
+          "name": " PLF 2017",
+          "count": 3,
+          "state": "displayed",
+          "value": " PLF 2017"
+        },
+        {
+          "name": " PLF 2018",
+          "count": 4,
+          "state": "displayed",
+          "value": " PLF 2018"
+        },
+        {
+          "name": " PLF 2019",
+          "count": 4,
+          "state": "displayed",
+          "value": " PLF 2019"
+        },
+        {
+          "name": " PLR 2010",
+          "count": 7,
+          "state": "displayed",
+          "value": " PLR 2010"
+        },
+        {
+          "name": " PLR 2011",
+          "count": 11,
+          "state": "displayed",
+          "value": " PLR 2011"
+        },
+        {
+          "name": " PLR 2012",
+          "count": 5,
+          "state": "displayed",
+          "value": " PLR 2012"
+        },
+        {
+          "name": " PLR 2013",
+          "count": 1,
+          "state": "displayed",
+          "value": " PLR 2013"
+        },
+        {
+          "name": " PLR 2014",
+          "count": 1,
+          "state": "displayed",
+          "value": " PLR 2014"
+        },
+        {
+          "name": " PLR 2015",
+          "count": 1,
+          "state": "displayed",
+          "value": " PLR 2015"
+        },
+        {
+          "name": " PLR 2016",
+          "count": 1,
+          "state": "displayed",
+          "value": " PLR 2016"
+        },
+        {
+          "name": " annexes budgétaires",
+          "count": 81,
+          "state": "displayed",
+          "value": " annexes budgétaires"
+        },
+        {
+          "name": " autorisation d'engagement",
+          "count": 6,
+          "state": "displayed",
+          "value": " autorisation d'engagement"
+        },
+        {
+          "name": " autorisations d'engagement",
+          "count": 31,
+          "state": "displayed",
+          "value": " autorisations d'engagement"
+        },
+        {
+          "name": " autorisations d'engagement et crédits de paiement",
+          "count": 5,
+          "state": "displayed",
+          "value": " autorisations d'engagement et crédits de paiement"
+        },
+        {
+          "name": " budget 2010",
+          "count": 7,
+          "state": "displayed",
+          "value": " budget 2010"
+        },
+        {
+          "name": " budget 2011",
+          "count": 12,
+          "state": "displayed",
+          "value": " budget 2011"
+        },
+        {
+          "name": " budget 2012",
+          "count": 5,
+          "state": "displayed",
+          "value": " budget 2012"
+        },
+        {
+          "name": " budget 2013",
+          "count": 1,
+          "state": "displayed",
+          "value": " budget 2013"
+        },
+        {
+          "name": " budget général",
+          "count": 35,
+          "state": "displayed",
+          "value": " budget général"
+        },
+        {
+          "name": " budgets annexes",
+          "count": 12,
+          "state": "displayed",
+          "value": " budgets annexes"
+        },
+        {
+          "name": " classification ",
+          "count": 1,
+          "state": "displayed",
+          "value": " classification "
+        },
+        {
+          "name": " comptes  de concours financiers",
+          "count": 3,
+          "state": "displayed",
+          "value": " comptes  de concours financiers"
+        },
+        {
+          "name": " comptes d'affectation spécial",
+          "count": 1,
+          "state": "displayed",
+          "value": " comptes d'affectation spécial"
+        },
+        {
+          "name": " comptes d'affectation spéciale",
+          "count": 28,
+          "state": "displayed",
+          "value": " comptes d'affectation spéciale"
+        },
+        {
+          "name": " comptes de concours financiers",
+          "count": 19,
+          "state": "displayed",
+          "value": " comptes de concours financiers"
+        },
+        {
+          "name": " comptes des concours financiers",
+          "count": 1,
+          "state": "displayed",
+          "value": " comptes des concours financiers"
+        },
+        {
+          "name": " crédits de paiement",
+          "count": 33,
+          "state": "displayed",
+          "value": " crédits de paiement"
+        },
+        {
+          "name": " crédits de paiements",
+          "count": 2,
+          "state": "displayed",
+          "value": " crédits de paiements"
+        },
+        {
+          "name": " emploi temps plein",
+          "count": 16,
+          "state": "displayed",
+          "value": " emploi temps plein"
+        },
+        {
+          "name": " fonds de concours",
+          "count": 8,
+          "state": "displayed",
+          "value": " fonds de concours"
+        },
+        {
+          "name": " indicateurs",
+          "count": 2,
+          "state": "displayed",
+          "value": " indicateurs"
+        },
+        {
+          "name": " jaune budgétaire",
+          "count": 25,
+          "state": "displayed",
+          "value": " jaune budgétaire"
+        },
+        {
+          "name": " jaune budgétaire associations",
+          "count": 5,
+          "state": "displayed",
+          "value": " jaune budgétaire associations"
+        },
+        {
+          "name": " loi de finances",
+          "count": 111,
+          "state": "displayed",
+          "value": " loi de finances"
+        },
+        {
+          "name": " loi de finances initiale",
+          "count": 65,
+          "state": "displayed",
+          "value": " loi de finances initiale"
+        },
+        {
+          "name": " mission",
+          "count": 1,
+          "state": "displayed",
+          "value": " mission"
+        },
+        {
+          "name": " mission et programme",
+          "count": 1,
+          "state": "displayed",
+          "value": " mission et programme"
+        },
+        {
+          "name": " missions",
+          "count": 47,
+          "state": "displayed",
+          "value": " missions"
+        },
+        {
+          "name": " nomenclature",
+          "count": 5,
+          "state": "displayed",
+          "value": " nomenclature"
+        },
+        {
+          "name": " opérateurs de l'état",
+          "count": 1,
+          "state": "displayed",
+          "value": " opérateurs de l'état"
+        },
+        {
+          "name": " performance publique",
+          "count": 9,
+          "state": "displayed",
+          "value": " performance publique"
+        },
+        {
+          "name": " programme",
+          "count": 2,
+          "state": "displayed",
+          "value": " programme"
+        },
+        {
+          "name": " programmes",
+          "count": 60,
+          "state": "displayed",
+          "value": " programmes"
+        },
+        {
+          "name": " projet annuel de performance",
+          "count": 12,
+          "state": "displayed",
+          "value": " projet annuel de performance"
+        },
+        {
+          "name": " projet de loi de règlement",
+          "count": 3,
+          "state": "displayed",
+          "value": " projet de loi de règlement"
+        },
+        {
+          "name": " projet de lois de règlement",
+          "count": 25,
+          "state": "displayed",
+          "value": " projet de lois de règlement"
+        },
+        {
+          "name": " rapport annuel de performance",
+          "count": 2,
+          "state": "displayed",
+          "value": " rapport annuel de performance"
+        },
+        {
+          "name": " recettes",
+          "count": 1,
+          "state": "displayed",
+          "value": " recettes"
+        },
+        {
+          "name": " équivalent temps plein travaillé",
+          "count": 3,
+          "state": "displayed",
+          "value": " équivalent temps plein travaillé"
+        },
+        {
+          "name": "1944",
+          "count": 1,
+          "state": "displayed",
+          "value": "1944"
+        },
+        {
+          "name": "1945",
+          "count": 1,
+          "state": "displayed",
+          "value": "1945"
+        },
+        {
+          "name": "1946",
+          "count": 1,
+          "state": "displayed",
+          "value": "1946"
+        },
+        {
+          "name": "1947",
+          "count": 1,
+          "state": "displayed",
+          "value": "1947"
+        },
+        {
+          "name": "1948",
+          "count": 1,
+          "state": "displayed",
+          "value": "1948"
+        },
+        {
+          "name": "1949",
+          "count": 1,
+          "state": "displayed",
+          "value": "1949"
+        },
+        {
+          "name": "1950",
+          "count": 2,
+          "state": "displayed",
+          "value": "1950"
+        },
+        {
+          "name": "1951",
+          "count": 2,
+          "state": "displayed",
+          "value": "1951"
+        },
+        {
+          "name": "1952",
+          "count": 2,
+          "state": "displayed",
+          "value": "1952"
+        },
+        {
+          "name": "1953",
+          "count": 2,
+          "state": "displayed",
+          "value": "1953"
+        },
+        {
+          "name": "1954",
+          "count": 2,
+          "state": "displayed",
+          "value": "1954"
+        },
+        {
+          "name": "1998",
+          "count": 1,
+          "state": "displayed",
+          "value": "1998"
+        },
+        {
+          "name": "1999",
+          "count": 1,
+          "state": "displayed",
+          "value": "1999"
+        },
+        {
+          "name": "2000",
+          "count": 1,
+          "state": "displayed",
+          "value": "2000"
+        },
+        {
+          "name": "2001",
+          "count": 1,
+          "state": "displayed",
+          "value": "2001"
+        },
+        {
+          "name": "2002",
+          "count": 1,
+          "state": "displayed",
+          "value": "2002"
+        },
+        {
+          "name": "2003",
+          "count": 1,
+          "state": "displayed",
+          "value": "2003"
+        },
+        {
+          "name": "2004",
+          "count": 6,
+          "state": "displayed",
+          "value": "2004"
+        },
+        {
+          "name": "2005",
+          "count": 10,
+          "state": "displayed",
+          "value": "2005"
+        },
+        {
+          "name": "2006",
+          "count": 11,
+          "state": "displayed",
+          "value": "2006"
+        },
+        {
+          "name": "2007",
+          "count": 13,
+          "state": "displayed",
+          "value": "2007"
+        },
+        {
+          "name": "2008",
+          "count": 20,
+          "state": "displayed",
+          "value": "2008"
+        },
+        {
+          "name": "2009",
+          "count": 22,
+          "state": "displayed",
+          "value": "2009"
+        },
+        {
+          "name": "2010",
+          "count": 31,
+          "state": "displayed",
+          "value": "2010"
+        },
+        {
+          "name": "2011",
+          "count": 36,
+          "state": "displayed",
+          "value": "2011"
+        },
+        {
+          "name": "2012",
+          "count": 41,
+          "state": "displayed",
+          "value": "2012"
+        },
+        {
+          "name": "2013",
+          "count": 44,
+          "state": "displayed",
+          "value": "2013"
+        },
+        {
+          "name": "2014",
+          "count": 49,
+          "state": "displayed",
+          "value": "2014"
+        },
+        {
+          "name": "2015",
+          "count": 51,
+          "state": "displayed",
+          "value": "2015"
+        },
+        {
+          "name": "2016",
+          "count": 55,
+          "state": "displayed",
+          "value": "2016"
+        },
+        {
+          "name": "2017",
+          "count": 51,
+          "state": "displayed",
+          "value": "2017"
+        },
+        {
+          "name": "2018",
+          "count": 47,
+          "state": "displayed",
+          "value": "2018"
+        }
+      ]
+    },
+    {
+      "name": "theme",
+      "facets": [
+        {
+          "name": "ADMINISTRATION",
+          "count": 37,
+          "state": "displayed",
+          "value": "ADMINISTRATION"
+        },
+        {
+          "name": "BUDGET DE L'ETAT",
+          "count": 235,
+          "state": "displayed",
+          "value": "BUDGET DE L'ETAT"
+        },
+        {
+          "name": "COMPTES PUBLICS",
+          "count": 42,
+          "state": "displayed",
+          "value": "COMPTES PUBLICS"
+        },
+        {
+          "name": "CONSOMMATION",
+          "count": 21,
+          "state": "displayed",
+          "value": "CONSOMMATION"
+        },
+        {
+          "name": "ECONOMIE",
+          "count": 38,
+          "state": "displayed",
+          "value": "ECONOMIE"
+        },
+        {
+          "name": "ENTREPRISE",
+          "count": 28,
+          "state": "displayed",
+          "value": "ENTREPRISE"
+        },
+        {
+          "name": "FISCALITE",
+          "count": 13,
+          "state": "displayed",
+          "value": "FISCALITE"
+        },
+        {
+          "name": "INDUSTRIE ET SERVICES",
+          "count": 17,
+          "state": "displayed",
+          "value": "INDUSTRIE ET SERVICES"
+        },
+        {
+          "name": "MARCHES PUBLICS",
+          "count": 8,
+          "state": "displayed",
+          "value": "MARCHES PUBLICS"
+        },
+        {
+          "name": "RETRAITE",
+          "count": 13,
+          "state": "displayed",
+          "value": "RETRAITE"
+        }
+      ]
+    }
+  ]
+}

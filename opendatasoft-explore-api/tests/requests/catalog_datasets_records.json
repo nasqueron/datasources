@@ -1,0 +1,155 @@
+{
+  "total_count": 222629,
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn/records?limit=3&offset=0&timezone=UTC&include_app_metas=False"
+    },
+    {
+      "rel": "first",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn/records?limit=3&offset=0&timezone=UTC&include_app_metas=False"
+    },
+    {
+      "rel": "last",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn/records?limit=3&offset=222627&timezone=UTC&include_app_metas=False"
+    },
+    {
+      "rel": "next",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn/records?limit=3&offset=3&timezone=UTC&include_app_metas=False"
+    }
+  ],
+  "records": [
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn/records/b839362b229db63bc9b344e980ae6273be7f80fd"
+        },
+        {
+          "rel": "datasets",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets"
+        },
+        {
+          "rel": "dataset",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn"
+        }
+      ],
+      "record": {
+        "id": "b839362b229db63bc9b344e980ae6273be7f80fd",
+        "timestamp": "2021-01-07T23:00:00Z",
+        "size": 313,
+        "fields": {
+          "cct_code_dept": "Vendée",
+          "code_postal": "85300",
+          "cct_code_commune": "Challans",
+          "cct_denomination": "AUTO BILAN CHALLANDAIS",
+          "cct_adresse": "ALL DE LA JARIETTE",
+          "cct_tel": "0251683888",
+          "cct_url": "https://controle-technique.autosur.fr/512-autosur-challans",
+          "cat_vehicule_id": "1",
+          "cat_vehicule_libelle": "Voiture Particulière",
+          "cat_energie_id": "4",
+          "cat_energie_libelle": "Hybride",
+          "prix_visite": 94,
+          "date_application_visite": "2020-09-14",
+          "prix_contre_visite_min": 20,
+          "prix_contre_visite_max": 30,
+          "date_application_contre_visite": "2020-09-14",
+          "latitude": {
+            "lon": -1.867611,
+            "lat": 46.85617
+          },
+          "cct_siret": "42131847800037"
+        }
+      }
+    },
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn/records/eb04cba18e872814448a7fda829f3f1918cfae0b"
+        },
+        {
+          "rel": "datasets",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets"
+        },
+        {
+          "rel": "dataset",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn"
+        }
+      ],
+      "record": {
+        "id": "eb04cba18e872814448a7fda829f3f1918cfae0b",
+        "timestamp": "2021-01-07T23:00:00Z",
+        "size": 235,
+        "fields": {
+          "cct_code_dept": "Vendée",
+          "code_postal": "85700",
+          "cct_code_commune": "Pouzauges",
+          "cct_denomination": "SARL C.T.A",
+          "cct_adresse": "74 AV DES SABLES",
+          "cct_tel": null,
+          "cct_url": null,
+          "cat_vehicule_id": "5",
+          "cat_vehicule_libelle": "Camping-car (moins de 3,5 tonnes)",
+          "cat_energie_id": "5",
+          "cat_energie_libelle": "Electrique",
+          "prix_visite": 78,
+          "date_application_visite": "2020-10-02",
+          "prix_contre_visite_min": 20,
+          "prix_contre_visite_max": 20,
+          "date_application_contre_visite": "2020-10-02",
+          "latitude": {
+            "lon": -0.847609,
+            "lat": 46.777426
+          },
+          "cct_siret": "41409085200131"
+        }
+      }
+    },
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn/records/5fab8c9f6d5e3cfbcfaaf38e9bc3faa55f6b25d7"
+        },
+        {
+          "rel": "datasets",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets"
+        },
+        {
+          "rel": "dataset",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/controle_techn"
+        }
+      ],
+      "record": {
+        "id": "5fab8c9f6d5e3cfbcfaaf38e9bc3faa55f6b25d7",
+        "timestamp": "2021-01-07T23:00:00Z",
+        "size": 238,
+        "fields": {
+          "cct_code_dept": "Vendée",
+          "code_postal": "85490",
+          "cct_code_commune": "Benet",
+          "cct_denomination": "SH AUTO CONTROLE",
+          "cct_adresse": "LE MOULIN DU JOUG",
+          "cct_tel": "0251873812",
+          "cct_url": "autosur.fr",
+          "cat_vehicule_id": "4",
+          "cat_vehicule_libelle": "Camionnette",
+          "cat_energie_id": "2",
+          "cat_energie_libelle": "Diesel",
+          "prix_visite": 71,
+          "date_application_visite": "2021-01-04",
+          "prix_contre_visite_min": 10,
+          "prix_contre_visite_max": 15,
+          "date_application_contre_visite": "2020-09-08",
+          "latitude": {
+            "lon": -0.576303,
+            "lat": 46.369277
+          },
+          "cct_siret": "83850363900018"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,470 @@
+{
+  "total_count": 426,
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets?limit=3&offset=0&timezone=UTC&include_app_metas=False"
+    },
+    {
+      "rel": "first",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets?limit=3&offset=0&timezone=UTC&include_app_metas=False"
+    },
+    {
+      "rel": "last",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets?limit=3&offset=423&timezone=UTC&include_app_metas=False"
+    },
+    {
+      "rel": "next",
+      "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets?limit=3&offset=3&timezone=UTC&include_app_metas=False"
+    }
+  ],
+  "datasets": [
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/mef-catalogue-temporaire"
+        },
+        {
+          "rel": "datasets",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets"
+        },
+        {
+          "rel": "records",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/mef-catalogue-temporaire/records"
+        },
+        {
+          "rel": "exports",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/mef-catalogue-temporaire/exports"
+        },
+        {
+          "rel": "facets",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/mef-catalogue-temporaire/facets"
+        }
+      ],
+      "dataset": {
+        "dataset_id": "mef-catalogue-temporaire",
+        "dataset_uid": "da_eeozwd",
+        "has_records": true,
+        "features": [],
+        "visibility": "domain",
+        "attachments": [],
+        "data_visible": true,
+        "fields": [],
+        "metas": {
+          "custom": {
+            "perimetre-territorial": [
+              ""
+            ],
+            "editeur": [
+              "Ministères économiques et financiers"
+            ],
+            "date-de-creation": null,
+            "cycle": [
+              ""
+            ],
+            "periodicity": [
+              ""
+            ]
+          },
+          "default": {
+            "title": "MEF - catalogue - temporaire",
+            "description": null,
+            "theme": null,
+            "keyword": null,
+            "license": "Licence Ouverte v2.0 (Etalab)",
+            "license_url": "https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf",
+            "language": "fr",
+            "metadata_languages": [
+              "fr"
+            ],
+            "timezone": null,
+            "modified": "2019-01-08T17:21:04+00:00",
+            "modified_updates_on_metadata_change": false,
+            "modified_updates_on_data_change": false,
+            "geographic_area_mode": null,
+            "geographic_area": null,
+            "data_processed": null,
+            "metadata_processed": "2022-03-11T15:04:21.859000+00:00",
+            "geographic_reference": null,
+            "geographic_reference_auto": null,
+            "territory": null,
+            "geometry_types": null,
+            "publisher": "OpenDataSoft",
+            "references": null,
+            "records_count": 0,
+            "attributions": null,
+            "source_domain": null,
+            "source_domain_title": null,
+            "source_domain_address": null,
+            "source_dataset": null,
+            "shared_catalog": null,
+            "federated": false,
+            "oauth_scope": null,
+            "parent_domain": null
+          }
+        }
+      }
+    },
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/france-relance-donnees-agregees"
+        },
+        {
+          "rel": "datasets",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets"
+        },
+        {
+          "rel": "records",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/france-relance-donnees-agregees/records"
+        },
+        {
+          "rel": "exports",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/france-relance-donnees-agregees/exports"
+        },
+        {
+          "rel": "facets",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/france-relance-donnees-agregees/facets"
+        }
+      ],
+      "dataset": {
+        "dataset_id": "france-relance-donnees-agregees",
+        "dataset_uid": "da_oc6m1o",
+        "has_records": true,
+        "features": [
+          "analyze",
+          "timeserie"
+        ],
+        "visibility": "domain",
+        "attachments": [],
+        "data_visible": true,
+        "fields": [
+          {
+            "name": "period_date",
+            "description": null,
+            "annotations": {},
+            "label": "period_date",
+            "type": "date"
+          },
+          {
+            "name": "date",
+            "description": null,
+            "annotations": {
+              "facet": true
+            },
+            "label": "date",
+            "type": "date"
+          },
+          {
+            "name": "abrev_mois",
+            "description": null,
+            "annotations": {},
+            "label": "abrev_mois",
+            "type": "text"
+          },
+          {
+            "name": "maille",
+            "description": null,
+            "annotations": {
+              "facet": true
+            },
+            "label": "maille",
+            "type": "text"
+          },
+          {
+            "name": "localisation",
+            "description": null,
+            "annotations": {
+              "facet": true
+            },
+            "label": "localisation",
+            "type": "text"
+          },
+          {
+            "name": "code_region",
+            "description": null,
+            "annotations": {},
+            "label": "code_region",
+            "type": "text"
+          },
+          {
+            "name": "code_departement",
+            "description": null,
+            "annotations": {},
+            "label": "code_département",
+            "type": "text"
+          },
+          {
+            "name": "ministeres",
+            "description": null,
+            "annotations": {
+              "facet": true
+            },
+            "label": "ministère",
+            "type": "text"
+          },
+          {
+            "name": "volet",
+            "description": null,
+            "annotations": {
+              "facet": true
+            },
+            "label": "volet",
+            "type": "text"
+          },
+          {
+            "name": "mesure",
+            "description": null,
+            "annotations": {
+              "facet": true
+            },
+            "label": "mesure",
+            "type": "text"
+          },
+          {
+            "name": "indicateur",
+            "description": null,
+            "annotations": {},
+            "label": "indicateur",
+            "type": "text"
+          },
+          {
+            "name": "short_indic",
+            "description": null,
+            "annotations": {
+              "facet": true
+            },
+            "label": "short_indic",
+            "type": "text"
+          },
+          {
+            "name": "indic_id",
+            "description": null,
+            "annotations": {},
+            "label": "indic_id",
+            "type": "text"
+          },
+          {
+            "name": "valeur",
+            "description": null,
+            "annotations": {},
+            "label": "valeur",
+            "type": "double"
+          }
+        ],
+        "metas": {
+          "custom": {
+            "perimetre-territorial": [
+              "France entière"
+            ],
+            "editeur": null,
+            "date-de-creation": "2021-09-07",
+            "cycle": null,
+            "periodicity": [
+              "Quotidienne"
+            ]
+          },
+          "default": {
+            "title": "France Relance - données agrégées",
+            "description": "<p>Le Gouvernement est pleinement mobilisé pour faire face et<b> protéger \nle pays des conséquences économiques et sociales</b> de la crise de la \nCovid-19. Un plan de soutien a apporté une réponse immédiate et forte \npour amortir le premier choc.\n</p><p>Afin de préparer l’économie française aux défis qui l’attendent dans \nles années qui viennent, le <b>plan “France Relance”</b> a été présenté le 3 \nseptembre 2020, résultat d’une large concertation nationale mise en \nplace pour tirer les enseignements de la crise. Trois volets sont \nidentifiés : l’<b>écologie</b>, la <b>compétitivité </b>et la <b>cohésion</b>.</p>\n<p>Afin de donner plus de visibilité à l’ensemble des Français sur la \nmise en œuvre du Plan de relance, le ministère de l’Économie, des \nFinances et de la Relance publie un tableau de bord permettant de suivre\n l’avancement des principales mesures des trois volets de « France \nRelance ». Les indicateurs sont actualisés tous les mois.</p><p>Le tableau de bord public présente les principaux indicateurs contenus dans ces données. Le tableau de bord est accessible <b><a href=\"https://www.economie.gouv.fr/plan-de-relance/tableau-de-bord\" target=\"_blank\">à cette adresse</a></b>.<br/></p>",
+            "theme": null,
+            "keyword": [
+              "Plan de relance"
+            ],
+            "license": "Licence Ouverte v2.0 (Etalab)",
+            "license_url": "https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf",
+            "language": "fr",
+            "metadata_languages": [
+              "fr"
+            ],
+            "timezone": null,
+            "modified": "2021-09-06T10:02:29+00:00",
+            "modified_updates_on_metadata_change": false,
+            "modified_updates_on_data_change": false,
+            "geographic_area_mode": null,
+            "geographic_area": null,
+            "data_processed": "2023-01-14T23:02:56.803000+00:00",
+            "metadata_processed": "2023-01-14T23:02:56.863000+00:00",
+            "geographic_reference": [
+              "world_fr"
+            ],
+            "geographic_reference_auto": true,
+            "territory": [
+              "France"
+            ],
+            "geometry_types": null,
+            "publisher": "SGPR",
+            "references": null,
+            "records_count": 198275,
+            "attributions": null,
+            "source_domain": null,
+            "source_domain_title": null,
+            "source_domain_address": null,
+            "source_dataset": null,
+            "shared_catalog": null,
+            "federated": false,
+            "oauth_scope": null,
+            "parent_domain": null
+          }
+        }
+      }
+    },
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/plan-de-relance-france-num-laureats-et-montants-par-departement"
+        },
+        {
+          "rel": "datasets",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets"
+        },
+        {
+          "rel": "records",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/plan-de-relance-france-num-laureats-et-montants-par-departement/records"
+        },
+        {
+          "rel": "exports",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/plan-de-relance-france-num-laureats-et-montants-par-departement/exports"
+        },
+        {
+          "rel": "facets",
+          "href": "https://data.economie.gouv.fr/api/v2/catalog/datasets/plan-de-relance-france-num-laureats-et-montants-par-departement/facets"
+        }
+      ],
+      "dataset": {
+        "dataset_id": "plan-de-relance-france-num-laureats-et-montants-par-departement",
+        "dataset_uid": "da_e6yxsl",
+        "has_records": true,
+        "features": [
+          "analyze"
+        ],
+        "visibility": "domain",
+        "attachments": [],
+        "data_visible": true,
+        "fields": [
+          {
+            "name": "mesure",
+            "description": null,
+            "annotations": {},
+            "label": "MESURE",
+            "type": "text"
+          },
+          {
+            "name": "mesure_light",
+            "description": null,
+            "annotations": {},
+            "label": "MESURE_LIGHT",
+            "type": "text"
+          },
+          {
+            "name": "volet_relance",
+            "description": null,
+            "annotations": {},
+            "label": "VOLET_RELANCE",
+            "type": "text"
+          },
+          {
+            "name": "code_departement",
+            "description": null,
+            "annotations": {},
+            "label": "CODE_DEPARTEMENT",
+            "type": "double"
+          },
+          {
+            "name": "nom_departement",
+            "description": null,
+            "annotations": {},
+            "label": "NOM_DEPARTEMENT",
+            "type": "text"
+          },
+          {
+            "name": "nom_region",
+            "description": null,
+            "annotations": {},
+            "label": "NOM_REGION",
+            "type": "text"
+          },
+          {
+            "name": "code_region",
+            "description": null,
+            "annotations": {},
+            "label": "CODE_REGION",
+            "type": "double"
+          },
+          {
+            "name": "nombre_beneficiaires",
+            "description": null,
+            "annotations": {},
+            "label": "NOMBRE_BENEFICIAIRES",
+            "type": "double"
+          },
+          {
+            "name": "montant_participation_etat",
+            "description": null,
+            "annotations": {},
+            "label": "MONTANT_PARTICIPATION_ETAT",
+            "type": "double"
+          }
+        ],
+        "metas": {
+          "custom": {
+            "perimetre-territorial": [
+              "France entière"
+            ],
+            "editeur": null,
+            "date-de-creation": null,
+            "cycle": null,
+            "periodicity": null
+          },
+          "default": {
+            "title": "Plan de relance - Chèque France Num : nombre de bénéficiaires et montants par département",
+            "description": "<p>Afin d’aider les PME et notamment les commerçants, artisans et \nrestaurateur à maintenir et développer leur activité pendant le \nconfinement, le Gouvernement a présenté un plan pour accélérer leur \nnumérisation. Il s'appuie sur deux grands axes : un accompagnement actif\n des entreprises (solutions numériques sur étagère, campagne \ntéléphoniques, formation-actions, diagnostic de maturité) et un soutien \nfinancier des entreprises, prenant notamment la forme d'un chèque de \n500€ par entreprise.<br/><br/>  Le jeu de données indique pour chaque région et département : le nombre\n d'entreprises bénéficiaires du chèque numérisation TPE / PME, le \nmontant global représenté par les chèques versés dans le territoire.</p>",
+            "theme": [
+              "ECONOMIE"
+            ],
+            "keyword": [
+              "Plan de relance"
+            ],
+            "license": "Licence Ouverte v2.0 (Etalab)",
+            "license_url": "https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf",
+            "language": "fr",
+            "metadata_languages": [
+              "fr"
+            ],
+            "timezone": null,
+            "modified": "2021-09-21T07:32:13.089000+00:00",
+            "modified_updates_on_metadata_change": false,
+            "modified_updates_on_data_change": true,
+            "geographic_area_mode": null,
+            "geographic_area": null,
+            "data_processed": "2021-09-21T07:32:13.089000+00:00",
+            "metadata_processed": "2022-08-12T14:37:53.678000+00:00",
+            "geographic_reference": [
+              "world_fr"
+            ],
+            "geographic_reference_auto": true,
+            "territory": [
+              "France"
+            ],
+            "geometry_types": null,
+            "publisher": "DGE",
+            "references": null,
+            "records_count": 103,
+            "attributions": null,
+            "source_domain": null,
+            "source_domain_title": null,
+            "source_domain_address": null,
+            "source_dataset": null,
+            "shared_catalog": null,
+            "federated": false,
+            "oauth_scope": null,
+            "parent_domain": null
+          }
+        }
+      }
+    }
+  ]
+}
