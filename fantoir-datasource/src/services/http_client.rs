@@ -1,7 +1,15 @@
-use lazy_static::lazy_static;
+use std::io::Error as IOError;
+use std::path::Path;
 
-use reqwest::{Client as ReqwestClient, ClientBuilder, Error, IntoUrl, Response};
+use lazy_static::lazy_static;
+use reqwest::Client as ReqwestClient;
+use reqwest::ClientBuilder;
+use reqwest::Error as ReqwestError;
+use reqwest::IntoUrl;
+use reqwest::Response;
 use reqwest::header::HeaderMap;
+use tokio::fs::File;
+use tokio::io::AsyncWriteExt;
 
 /*   -------------------------------------------------------------
      User agent
@@ -52,5 +60,41 @@ impl Client {
             .get(url)
             .send()
             .await
+            .map_err(|error| Error::Reqwest(error))
     }
+
+    pub async fn download<P, T>(&self, url: T, target_path: P) -> Result<usize, Error>
+        where T: IntoUrl, P: AsRef<Path> {
+        let mut file =  File::create(target_path)
+            .await
+            .map_err(|error| Error::IO(error))?;
+
+        let mut target_content = self.get(url).await?;
+        let mut bytes_read = 0;
+        while let Some(chunk) = target_content
+            .chunk()
+            .await
+            .map_err(|error| Error::Reqwest(error))?
+        {
+           bytes_read += file.write(chunk.as_ref())
+               .await
+               .map_err(|error| Error::IO(error))?;
+        }
+
+        Ok(bytes_read)
+    }
+}
+
+/*   -------------------------------------------------------------
+     HTTP client error
+     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/// HTTP client error
+#[derive(Debug)]
+pub enum Error {
+    /// Represents an underlying error from Reqwest HTTP client when processing a request.
+    Reqwest(ReqwestError),
+
+    /// Represents an IO error when doing file operations.
+    IO(IOError),
 }

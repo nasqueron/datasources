@@ -3,9 +3,9 @@
 //! This module offers a structure for a FANTOIR record, methods to parse the file and export it.
 //! Database functions expect to work with an executor from sqlx crate.
 
+use chrono::NaiveDate;
 use lazy_static::lazy_static;
 use sqlx::PgPool;
-use sqlx::types::chrono::NaiveDate;
 
 lazy_static! {
     static ref DEPARTMENTS_WITH_CODE_DIRECTION: Vec<&'static str> = vec!["13", "59", "75", "92", "97"];

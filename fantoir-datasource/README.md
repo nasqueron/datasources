@@ -6,6 +6,12 @@ Define your PostgreSQL connection URL in environment:
 export DATABASE_URL="postgres://fantoir:fantoir@localhost/fantoir"
 ```
 
+## Requirements
+
+A PostgreSQL server, at least for import/wikidata/promote commands.
+
+If you wish to use the tool to fetch the FANTOIR database: `unzip`
+
 ## Development
 
 ### Build instructions

@@ -1,3 +1,4 @@
 /target
 /FANTOIR*
+!/fantoir-datasource
 Cargo.lock
