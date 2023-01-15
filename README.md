@@ -1,51 +1,61 @@
-## How to use?
+# Nasqueron Datasources
 
-Define your PostgreSQL connection URL in environment:
+This repository offers components to query, extract and enrich data.
 
-```
-export DATABASE_URL="postgres://fantoir:fantoir@localhost/fantoir"
-```
+Those components are intended to build data pipelines.
 
-## Development
+## Components
 
-### Build instructions
+### FANTOIR import tool (fantoir-datasource)
 
-The PostgreSQL library is required to link against it.
-If not found, you can add the path to the LIB environment variable.
+Import a file from [FANTOIR file][1] into PostgreSQL.
 
-### Prepare a test database
+Enrich it from other sources like Wikidata.
 
-Execute the following queries as postgres user:
+More information: [fantoir-datasource README](fantoir-datasource/README.md)
 
-```
-CREATE ROLE fantoir WITH PASSWORD 'fantoir' LOGIN;
-CREATE DATABASE fantoir OWNER fantoir;
-```
+## Repository structure
 
-Connected as your database role, enable the pg_trgm extension
-to be able to generate the index for full-text search with trigrams:
+The repository is structured in subdirectories for components.
+It's a **monorepo** of tightly tied components to build our data pipelines.
 
-```
-CREATE EXTENSION pg_trgm;
-```
+To contribute to one of those components, simply clone this monorepo
+and send a pull request with a branch against like any other repository.
 
-If the extension doesn't exist, it can be included in a package
-named for example `postgresql-contrib`.
+To install only one component, you can use cargo. For example,
+`cargo install fantoir-datasource` will only install the
+`fantoir-datasource` binary.
 
-You can then use the code with the default DATABASE_URL documented above.
+To include a component in your own project, just include its name in Cargo.toml,
+crates.io and Cargo supports crates in Git subdirectories and this will only
+download and compile the needed component and its dependencies, ignoring others.
 
-### Database pitfalls
+There is no plan to export this monorepo in polyrepo/manyrepo as long as
+it contains only Rust code. We'd of course export Composer or npm packages,
+as it's a requirement of their respective packages managers.
 
-The FANTOIR database uses INSEE department code, they can contain a letter,
-currently only for Corse (2A and 2B).
-That also applies when building the INSEE commune code.
+## License
 
-If a record is canceled, the cancel date can be omitted.
-The creation date can be omitted too.
+Code is available under BSD-2-Clause license.
 
-The last line of the FANTOIR database must be ignored.
+Datasets imported by those tools are published under their own respective licenses.
 
-Wikidata uses the "code FANTOIR", matching the "code RIVOLI"
-documented in FANTOIR file description. This code matches the
-11 first characters of a record.
-See also https://www.wikidata.org/wiki/Property:P3182.
+## Notes
+
+### Interesting links
+
+  * [Documentation on Agora](https://agora.nasqueron.org/Nasqueron_Datasources)
+  * [Project board](https://devcentral.nasqueron.org/project/view/6/) for issues and features requests
+  * [How to contribute]()
+
+### Not to be confused with
+
+  * ***Nasqueron API datasources*** (rAPIS): exposes API for data
+    less easy to parse, see https://api.nasqueron.org/datasources/
+
+  * ***Nasqueron Databases*** (rDB): front-end for datasources and
+    other sources of databases, ie this datasources repository
+    prepares and enriches data than can then be used in https://db.nasqueron.org
+
+
+[1]: <https://data.economie.gouv.fr/explore/dataset/fichier-fantoir-des-voies-et-lieux-dits/information/> "FANTOIR sur data.economie.gouv.fr"
