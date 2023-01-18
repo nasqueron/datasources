@@ -46,7 +46,7 @@ Datasets imported by those tools are published under their own respective licens
 
   * [Documentation on Agora](https://agora.nasqueron.org/Nasqueron_Datasources)
   * [Project board](https://devcentral.nasqueron.org/project/view/6/) for issues and features requests
-  * [How to contribute]()
+  * [How to contribute](https://agora.nasqueron.org/How_to_contribute_code)
 
 ### Not to be confused with
 
