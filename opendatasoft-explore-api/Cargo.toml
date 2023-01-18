@@ -1,6 +1,7 @@
 [package]
 name = "opendatasoft-explore-api"
 version = "0.1.0"
+description = "HTTP client for Opendatasoft Explore API v2"
 authors = [
     "Sébastien Santoro <dereckson@espace-win.org>"
 ]
