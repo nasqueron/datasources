@@ -1,5 +1,12 @@
-//! Service to search imported FANTOIR table
-//! This is intended to be exposed to the tool, and used internally to fix FANTOIR codes.
+//! Service to search imported FANTOIR table.
+//!
+//! This is intended to be exposed to the tool, and used internally to fix FANTOIR codes:
+//!
+//!   - the `fantoir-datasource query` command can so be used to check
+//!     if an import contains expected values to validate before promotion.
+//!
+//!   - the Wikidata import code uses `search_fantoir_code` when the FANTOIR
+//!     code doesn't contain the code direction, and it can't be computed.
 
 use std::fmt::{Display, Formatter};
 use sqlx::{Error, FromRow, PgPool};
