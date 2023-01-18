@@ -48,13 +48,21 @@ async fn search_one_row(pool: &PgPool, code_fantoir: &str) {
 async fn search_libelle(pool: &PgPool, args: QueryArgs) {
     let expression = args.libelle.join(" ");
 
-   query_libelle(pool, &expression)
-       .await
-       .iter()
-       .filter(|&entry| entry_matches_conditions(entry, &args))
-       .for_each(|entry| {
-           println!("{}", entry);
-       });
+    let mut found = false;
+
+    query_libelle(pool, &expression)
+        .await
+        .iter()
+        .filter(|&entry| entry_matches_conditions(entry, &args))
+        .for_each(|entry| {
+            found = true;
+
+            println!("{}", entry);
+        });
+
+    if !found {
+        exit(EXIT_CODE_NO_RESULT_FOUND);
+    }
 }
 
 fn entry_matches_conditions(entry: &FantoirVoieResult, conditions: &QueryArgs) -> bool {
