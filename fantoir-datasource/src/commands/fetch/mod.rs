@@ -44,6 +44,7 @@ pub async fn fetch (overwrite: bool) {
     let exit_code = match unzip(&target_path, overwrite).await {
         Ok(path) => {
             println!("FANTOIR_FILE={}", &path);
+            println!("FANTOIR_TABLE={}", suggest_fantoir_table(&path));
 
             0
         }
@@ -56,6 +57,16 @@ pub async fn fetch (overwrite: bool) {
     }
 
     exit(exit_code);
+}
+
+/// Suggests a FANTOIR table name based on the file version
+fn suggest_fantoir_table(filename: &str) -> String {
+    assert_eq!(11, filename.len(), "Fantoir filename is expected to have 11 characters.");
+
+    let month: i8 = filename[7..=8].parse().unwrap();
+    let year = 2000 + filename[9..=10].parse::<i32>().unwrap();
+
+    format!("fantoir_{}{}", year, month)
 }
 
 /// Determines a temporary location where to save the FANTOIR file ZIP archive
@@ -121,4 +132,20 @@ pub async fn get_last_file_information () -> FantoirFile {
         .map(|attachment| FantoirFile::from(&attachment).expect("Can't parse FANTOIR file metadata"))
         .max() // The most recent
         .unwrap()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_suggest_fantoir_table () {
+        assert_eq!("fantoir_202210", &suggest_fantoir_table("FANTOIR1022"))
+    }
+
+    #[test]
+    #[should_panic]
+    fn test_suggest_fantoir_table_with_bogus_filename () {
+        suggest_fantoir_table("FOO");
+    }
 }
