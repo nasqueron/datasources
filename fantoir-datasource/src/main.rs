@@ -89,8 +89,8 @@ pub struct QueryArgs {
     #[arg(long)]
     code_voie: Option<String>,
 
-    /// Expression to search
-    libelle: Vec<String>,
+    /// Expression to search, FANTOIR code or label of the voie
+    expression: Vec<String>,
 }
 
 #[tokio::main]

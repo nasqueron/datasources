@@ -13,6 +13,7 @@ chrono = "~0.4.23"
 lazy_static = "~1.4.0"
 opendatasoft-explore-api = { version = "0.1.0",  path = "../opendatasoft-explore-api" }
 oxrdf = "~0.1.1"
+regex =  "~1.7.1"
 sparesults = "~0.1.3"
 
 [dependencies.async-scoped]

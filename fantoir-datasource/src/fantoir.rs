@@ -5,6 +5,7 @@
 
 use chrono::NaiveDate;
 use lazy_static::lazy_static;
+use regex::Regex;
 use sqlx::PgPool;
 
 lazy_static! {
@@ -15,6 +16,10 @@ lazy_static! {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M',
         'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
     ];
+
+    static ref RE_FANTOIR: Regex = Regex::new(
+        "^[0-9][0-9A-Z][0-9][0-9][0-9][0-9][0-9A-Z][0-9][0-9][0-9][A-Z]$"
+    ).unwrap();
 }
 
 /// A voie in the FANTOIR database
@@ -258,6 +263,16 @@ pub fn compute_rivoli_key (code: &str) -> char {
     return RIVOLI_STRING[index as usize];
 }
 
+/// Determines if the specified expression looks like a FANTOIR code,
+/// as used by DGFiP official FANTOIR file.
+///
+/// The IGN or OpenStreetMap format variants will return false.
+///
+/// This method does NOT check the RIVOLI key, only the format.
+pub fn looks_like_canonical_fantoir_code (expression: &str) -> bool {
+    RE_FANTOIR.is_match(expression)
+}
+
 #[cfg(test)]
 mod tests {
     // Note this useful idiom: importing names from outer (for mod tests) scope.
@@ -318,7 +333,6 @@ mod tests {
         assert_eq!(expected, fix_fantoir_code("92002_5130"), "As code direction can't be computed, this code should be to search");
     }
 
-
     #[test]
     pub fn test_compute_rivoli_key() {
         assert_eq!('W', compute_rivoli_key("380003B001"));
@@ -328,5 +342,17 @@ mod tests {
     #[test]
     pub fn test_compute_rivoli_key_with_type_voie_zero() {
         assert_eq!('C', compute_rivoli_key("9722230261"));
+    }
+
+    #[test]
+    pub fn test_looks_like_canonical_fantoir_code () {
+        assert!(looks_like_canonical_fantoir_code("770246B015C"));
+    }
+
+    #[test]
+    pub fn test_looks_like_canonical_fantoir_code_for_variants () {
+        assert!(!looks_like_canonical_fantoir_code("770246B015"));
+        assert!(!looks_like_canonical_fantoir_code("77246_B015"));
+        assert!(!looks_like_canonical_fantoir_code("77246B015C"));
     }
 }

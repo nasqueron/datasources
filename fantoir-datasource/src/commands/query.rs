@@ -3,6 +3,7 @@ use std::process::exit;
 use sqlx::PgPool;
 
 use crate::db::connect_to_db;
+use crate::fantoir::looks_like_canonical_fantoir_code;
 use crate::QueryArgs;
 use crate::services::query::*;
 
@@ -26,7 +27,12 @@ pub async fn search(args: QueryArgs, database_url: &str) {
         exit(EXIT_CODE_NO_RESULT_FOUND);
     }
 
-    if args.libelle.len() > 0 {
+    if args.expression.len() > 0 {
+        if let Some(code) = pick_fantoir_code_from_args(&args.expression) {
+            search_one_row(&pool, &code).await;
+            return;
+        }
+
         search_libelle(&pool, args).await;
         return;
     }
@@ -46,7 +52,7 @@ async fn search_one_row(pool: &PgPool, code_fantoir: &str) {
 }
 
 async fn search_libelle(pool: &PgPool, args: QueryArgs) {
-    let expression = args.libelle.join(" ");
+    let expression = args.expression.join(" ");
 
     let mut found = false;
 
@@ -73,4 +79,12 @@ fn entry_matches_conditions(entry: &FantoirVoieResult, conditions: &QueryArgs) -
     }
 
     return true;
+}
+
+fn pick_fantoir_code_from_args (expressions: &Vec<String>) -> Option<String> {
+    if expressions.len() == 1 && looks_like_canonical_fantoir_code(&expressions[0]) {
+        Some(expressions[0].clone())
+    } else {
+        None
+    }
 }
