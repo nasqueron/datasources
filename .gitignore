@@ -1,4 +1,10 @@
+# Rust
 /target
+Cargo.lock
+
+# Python
+__pycache__
+
+# Data
 /FANTOIR*
 !/fantoir-datasource
-Cargo.lock
