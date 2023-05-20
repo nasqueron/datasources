@@ -2,5 +2,6 @@
 
 members = [
     "fantoir-datasource",
+    "rfc-datasource",
     "opendatasoft-explore-api",
 ]

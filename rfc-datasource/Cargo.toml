@@ -1,0 +1,24 @@
+[package]
+name = "rfc-datasource"
+version = "0.1.0"
+edition = "2021"
+description = "Downloads and transforms RFC index"
+authors = [
+    "Sébastien Santoro <dereckson@espace-win.org>"
+]
+license = "BSD-2-Clause"
+
+[dependencies]
+lazy_static = "1.4.0"
+regex = "1.8.1"
+
+[dependencies.clap]
+version = "4.3.0"
+features = ["derive"]
+
+[dependencies.reqwest]
+version = "~0.11.18"
+
+[dependencies.tokio]
+version = "1.28.1"
+features = ["full"]

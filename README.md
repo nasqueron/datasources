@@ -14,6 +14,14 @@ Enrich it from other sources like Wikidata.
 
 More information: [fantoir-datasource README](fantoir-datasource/README.md)
 
+### RFC import fool (rfc-datasource)
+
+Import RFC index and convert it to the specified text-based format.
+
+Can be used to refresh RFC Darkbot database for IRC bots.
+
+More information: [rfc-datasource README](rfc-datasource/README.md)
+
 ### Opendatasoft Explore API client (opendatasoft-explore-api)
 
 The opendatasoft-explore-api crate allows to query the Opendatasoft Explore API from Rust code.
