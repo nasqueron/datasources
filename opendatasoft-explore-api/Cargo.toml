@@ -16,14 +16,18 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bytes = "~1.3.0" # Keep in sync with reqwest
+bytes = "~1.4.0" # Keep in sync with reqwest
 chrono = { version = "~0.4", features = ["serde"] }
-reqwest = {version = "~0.11.13" }
+reqwest = {version = "~0.11.18" }
 serde = "~1.0.152"
 serde_derive = "~1.0.152"
 serde_json = "~1.0.91"
 
 [dev-dependencies]
-mockito = "~0.31.1"
+# Mockito upgrade to 1.x is blocked by T1876
+mockito = "~0.32.5"
 lazy_static = "~1.4.0"
-tokio = { version = "~1.23.0", features = ["macros", "rt"] }
+
+[dependencies.tokio]
+version = "~1.28.1"
+features = ["macros", "rt"]
