@@ -14,6 +14,15 @@ Enrich it from other sources like Wikidata.
 
 More information: [fantoir-datasource README](fantoir-datasource/README.md)
 
+### IANA language subtag registry (language-subtag-registry-datasource)
+
+Import IANA language subtag registry datasource from RFC 5646 and convert it to
+the  specified text-based format.
+
+Can be used to refresh language Darkbot database for IRC bots.
+
+More information: [language-subtag-registry-datasource README](language-subtag-registry-datasource/README.md)
+
 ### RFC import fool (rfc-datasource)
 
 Import RFC index and convert it to the specified text-based format.

@@ -2,6 +2,7 @@
 
 members = [
     "fantoir-datasource",
+    "language-subtag-registry-datasource",
     "rfc-datasource",
     "opendatasoft-explore-api",
 ]
