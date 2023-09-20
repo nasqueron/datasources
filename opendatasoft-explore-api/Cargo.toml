@@ -24,8 +24,7 @@ serde_derive = "~1.0.152"
 serde_json = "~1.0.91"
 
 [dev-dependencies]
-# Mockito upgrade to 1.x is blocked by T1876
-mockito = "~0.32.5"
+mockito = "~1.1.0"
 lazy_static = "~1.4.0"
 
 [dependencies.tokio]
