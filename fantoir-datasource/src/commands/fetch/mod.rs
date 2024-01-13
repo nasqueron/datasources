@@ -66,7 +66,7 @@ fn suggest_fantoir_table(filename: &str) -> String {
     let month: i8 = filename[7..=8].parse().unwrap();
     let year = 2000 + filename[9..=10].parse::<i32>().unwrap();
 
-    format!("fantoir_{}{}", year, month)
+    format!("fantoir_{}{:02}", year, month)
 }
 
 /// Determines a temporary location where to save the FANTOIR file ZIP archive
