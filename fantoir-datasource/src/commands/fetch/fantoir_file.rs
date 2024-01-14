@@ -34,8 +34,8 @@ impl FantoirFile {
     pub fn get_file_candidates(&self) -> Vec<String> {
         let previous_month = self.date - Months::new(1);
         vec![
-            format!("FANTOIR{}{}", previous_month.month(), previous_month.year() - 2000),
-            format!("FANTOIR{}{}", self.date.month(), self.date.year() - 2000),
+            format!("FANTOIR{:02}{:02}", previous_month.month(), previous_month.year() - 2000),
+            format!("FANTOIR{:02}{:02}", self.date.month(), self.date.year() - 2000),
         ]
     }
 
