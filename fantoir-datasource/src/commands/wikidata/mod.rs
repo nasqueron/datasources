@@ -7,6 +7,8 @@ use std::collections::HashMap;
 use std::process::exit;
 
 use oxrdf::Term;
+use sparql_client::{is_term_empty, parse_literal, parse_term_uri};
+use sparql_client::Client as SparqlClient;
 use sqlx::PgPool;
 
 use crate::commands::wikidata::qualification::determine_p31_winner;
@@ -15,7 +17,7 @@ use crate::db::*;
 use crate::WikidataArgs;
 use crate::fantoir::{fix_fantoir_code, FixedFantoirCode};
 use crate::services::query::search_fantoir_code;
-use crate::services::sparql::*;
+use crate::services::http_client::build_http_client;
 
 pub static WIKIDATA_TABLE: &'static str = "fantoir_wikidata";
 pub static WIKIDATA_SPARQL_ENDPOINT: &'static str = "https://query.wikidata.org/sparql";
@@ -38,7 +40,10 @@ pub async fn import (args: &WikidataArgs, database_url: &str) {
     }
 
     // Query Wikidata and get (Wikidata/FANTOIR code, list of P31 (instance of) values) hashmap
-    let client = Client::new(WIKIDATA_SPARQL_ENDPOINT);
+    let client = SparqlClient::from_http_client(
+        WIKIDATA_SPARQL_ENDPOINT,
+        build_http_client()
+    );
     let mut what_map = HashMap::new();
 
     client.query(include_str!("../../queries/wikidata.sparql"))

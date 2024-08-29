@@ -13,7 +13,7 @@ use tokio::process::Command;
 
 use crate::commands::fetch::fantoir_file::FantoirFile;
 use crate::commands::fetch::os::is_command_available;
-use crate::services::http_client::Client as HttpClient;
+use crate::services::http_client::build_http_client;
 
 mod fantoir_file;
 mod os;
@@ -36,7 +36,7 @@ pub async fn fetch (overwrite: bool) {
     }
 
     let target_path = get_fantoir_zip_path();
-    if let Err(error) = HttpClient::new(None).download(&fantoir_file.url, &target_path).await {
+    if let Err(error) = build_http_client().download(&fantoir_file.url, &target_path).await {
         eprintln!("Can't download FANTOIR file: {:?}", error);
         exit(16);
     }

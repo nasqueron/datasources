@@ -1,0 +1,15 @@
+[package]
+name = "ds-http-client"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lazy_static = "~1.5.0"
+
+[dependencies.reqwest]
+version = "~0.12.7"
+features = ["gzip", "deflate"]
+
+[dependencies.tokio]
+version = "~1.39.3"
+features = ["full"]

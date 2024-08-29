@@ -1,6 +1,6 @@
 [package]
 name = "fantoir-datasource"
-version = "0.1.1"
+version = "0.2.0"
 edition = "2021"
 description = "Generates a Postgres table from FANTOIR raw file"
 authors = [
@@ -10,11 +10,12 @@ license = "BSD-2-Clause"
 
 [dependencies]
 chrono = "~0.4.38"
+ds-http-client = { version = "0.1.0",  path = "../ds-http-client" }
 lazy_static = "~1.5.0"
 opendatasoft-explore-api = { version = "0.1.1",  path = "../opendatasoft-explore-api" }
 oxrdf = "~0.1.7"
 regex = "~1.10.6"
-sparesults = "~0.1.8"
+sparql-client = { version = "0.1.0",  path = "../sparql-client" }
 
 [dependencies.async-scoped]
 version = "~0.9.0"
@@ -23,10 +24,6 @@ features = ["use-tokio"]
 [dependencies.clap]
 version = "~4.5.16"
 features = ["derive"]
-
-[dependencies.reqwest]
-version = "~0.11.18"
-features = ["gzip", "deflate"]
 
 [dependencies.sqlx]
 version = "~0.8.1"
