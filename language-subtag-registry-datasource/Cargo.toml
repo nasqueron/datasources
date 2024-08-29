@@ -1,6 +1,6 @@
 [package]
 name = "language-subtag-registry-datasource"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Downloads and transforms IANA language subtag registry"
 authors = [
@@ -9,17 +9,17 @@ authors = [
 license = "BSD-2-Clause"
 
 [dependencies]
-lazy_static = "1.4.0"
-regex = "1.8.1"
+lazy_static = "1.5.0"
+regex = "1.10.6"
 
 [dependencies.clap]
-version = "4.3.0"
+version = "4.5.16"
 features = ["derive"]
 
 [dependencies.reqwest]
-version = "~0.11.18"
+version = "~0.12.7"
 features = ["gzip", "deflate"]
 
 [dependencies.tokio]
-version = "1.28.1"
+version = "1.39.3"
 features = ["full"]

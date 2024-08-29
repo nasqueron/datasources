@@ -6,3 +6,5 @@ members = [
     "rfc-datasource",
     "opendatasoft-explore-api",
 ]
+
+resolver = "2"

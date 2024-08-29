@@ -1,6 +1,6 @@
 [package]
 name = "opendatasoft-explore-api"
-version = "0.1.0"
+version = "0.1.1"
 description = "HTTP client for Opendatasoft Explore API v2"
 authors = [
     "Sébastien Santoro <dereckson@espace-win.org>"
@@ -16,17 +16,17 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bytes = "~1.4.0" # Keep in sync with reqwest
+bytes = "~1.7.1" # Keep in sync with reqwest
 chrono = { version = "~0.4", features = ["serde"] }
-reqwest = {version = "~0.11.18" }
-serde = "~1.0.152"
-serde_derive = "~1.0.152"
-serde_json = "~1.0.91"
+reqwest = {version = "~0.12.7" }
+serde = "~1.0.209"
+serde_derive = "~1.0.209"
+serde_json = "~1.0.127"
 
 [dev-dependencies]
-mockito = "~1.1.0"
-lazy_static = "~1.4.0"
+mockito = "~1.5.0"
+lazy_static = "~1.5.0"
 
 [dependencies.tokio]
-version = "~1.28.1"
+version = "~1.39.3"
 features = ["macros", "rt"]
