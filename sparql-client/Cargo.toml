@@ -2,6 +2,16 @@
 name = "sparql-client"
 version = "0.1.0"
 edition = "2021"
+description = "SPARQL client based on Oxigraph components"
+authors = [
+    "Sébastien Santoro <dereckson@espace-win.org>"
+]
+license = "BSD-2-Clause"
+readme = "README.md"
+keywords = [ "RDF", "SPARQL", "Wikidata" ]
+categories = [ "database" ]
+repository = "https://devcentral.nasqueron.org/source/datasources/browse/main/sparql-client/"
+homepage = "https://agora.nasqueron.org/Nasqueron_Datasources"
 
 [dependencies]
 ds-http-client = { version = "0.1.0",  path = "../ds-http-client" }
