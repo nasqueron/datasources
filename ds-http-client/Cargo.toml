@@ -2,6 +2,11 @@
 name = "ds-http-client"
 version = "0.1.0"
 edition = "2021"
+description = "HTTP client to download files or query API with User-Agent set"
+authors = [
+    "Sébastien Santoro <dereckson@espace-win.org>"
+]
+license = "BSD-2-Clause"
 
 [dependencies]
 lazy_static = "~1.5.0"
